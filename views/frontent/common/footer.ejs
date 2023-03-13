@@ -1,0 +1,114 @@
+
+ <footer>
+    <div class="container">
+       <div class="row">
+          <div class="col-lg-12">
+             <div class="footer-copy_right_text">
+                Copyright © Ayan De - All Rights Reserved.
+             </div>
+          </div>
+       </div>
+    </div>
+ </footer>
+
+ <script type="text/javascript">
+    /// some script
+    
+    // jquery ready start
+    $(document).ready(function() {
+     
+        window.onscroll = function() {myFunction()};
+        var header = document.getElementById("teach_coders_header");
+        //var sticky = header.offsetTop;
+        function myFunction() {
+          if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+            header.classList.add("sticky");
+          } 
+          else {
+            header.classList.remove("sticky");
+          }
+        }
+    
+      // off convas menu jQuery code
+    
+        $("[data-trigger]").on("click", function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            var offcanvas_id =  $(this).attr('data-trigger');
+            $(offcanvas_id).toggleClass("show");
+            $('body').toggleClass("offcanvas-active");
+            $(".screen-overlay").toggleClass("show");
+    
+        }); 
+    
+    
+        // Close menu when pressing ESC
+        $(document).on('keydown', function(event) {
+            if(event.keyCode === 27) {
+               $(".offcanvas").removeClass("show");
+               $("body").removeClass("overlay-active");
+            }
+        });
+    
+        $(".btn-close, .screen-overlay").click(function(e){
+          $(".screen-overlay").removeClass("show");
+            $(".offcanvas").removeClass("show");
+            $("body").removeClass("offcanvas-active");
+    
+    
+        }); 
+      
+     // off convas menu jQuery code
+    
+    
+      $("li.side_drop_down").click(function(){
+          $('li.side_drop_down.active_nav').removeClass('active_nav');
+          $(this).addClass('active_nav');    
+      });
+    
+      $('div.more-read').hide();
+        $('.click_me').click(function() {
+            $(this).parent().find("div.more-read").slideToggle(400);
+            $(this).text($(this).text() == 'Read Less [-]' ? 'Read More [+]' : 'Read Less [-]');
+            return false;
+        });
+    
+    });
+    
+    // side baar accrodion js
+      $(".Dashboard_nav a").click(function() {
+          var link = $(this);
+          var closest_ul = link.closest("ul");
+          var parallel_active_links = closest_ul.find(".active")
+          var closest_li = link.closest("li");
+          var link_status = closest_li.hasClass("active");
+          var count = 0;
+    
+          closest_ul.find("ul").slideUp(function() {
+              if (++count == closest_ul.find("ul").length)
+                  parallel_active_links.removeClass("active");
+          });
+    
+          if (!link_status) {
+              closest_li.children("ul").slideDown();
+              closest_li.addClass("active");
+          }
+      })
+    
+    
+    
+    
+    // ============SET ACTIVE FOLDER FOR SIDE NAVIGATION
+    
+      
+ </script>
+ <!--js for serch box-->
+ <script src="/frontent/js/search-compile.js"></script>
+ <script src="/frontent/js/search-data-list.js"></script>
+ <!--/js for serch box-->
+ <!-- START CODE FOR VIEW SOURCE DESIGB -->
+ <script src="https://www.teachcoders.com/js/code-view.js"></script>
+ <script>hljs.highlightAll();</script>
+ <link  rel="stylesheet"  href="https://www.teachcoders.com/css/code-view-design.css">
+</body>
+</html>
