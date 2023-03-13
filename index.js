@@ -6,7 +6,7 @@ let session = require('express-session');
 let flash = require('connect-flash')
 let mongoose = require('mongoose')
 let app = express()
-
+const hostname = '0.0.0.0'
 // set locat variable
 
 
@@ -94,6 +94,6 @@ app.use('/', pages)
 
 
 
-app.listen(process.env.PORT, ()=>{
+app.listen(process.env.PORT, hostname, ()=>{
     console.log(process.env.PORT, 'Port Working')
 })
