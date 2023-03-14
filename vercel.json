@@ -1,9 +1,4 @@
+
 {
-    "routes": [
-        {
-            "src":"/",
-            "dest":"/index.js",
-            "methods":["POST","GET"]
-        }
-    ]
+    "rewrites":[{"source":"/(.*)", "destination":"/"}]
 }
